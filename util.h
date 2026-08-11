@@ -159,7 +159,7 @@ void pick() {
 
 	tokfree(&tokens,&ntokens);
 
-	printf("%s\r\n",passage);
+	printf("%s",passage);
 
 	fclose(fp);
 }
