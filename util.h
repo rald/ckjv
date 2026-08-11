@@ -102,7 +102,7 @@ void search(size_t page,char *text) {
 
 		size_t pages=(size_t)ceil((double)n/4);
 
-		printf("found %zu in %zu %s\r\n",n,pages,pages<2?"page":"pages");
+		printf("found %zu in %zu %s\n",n,pages,pages<2?"page":"pages");
 
 		free(line);
 		line=NULL;

@@ -16,8 +16,6 @@
 #include <signal.h>
 #include <time.h>
 
-
-
 #include "common.h"
 
 #define STRUTIL_IMPLEMENTATION
@@ -100,8 +98,4 @@ int main(int argc,char *argv[]) {
 	Infos_Free(&infos,&ninfos);
 
 	return 0;
-
 }
-
-
-
