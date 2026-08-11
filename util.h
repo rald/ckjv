@@ -16,8 +16,8 @@
 double drand(void);
 size_t getbnum(Info **infos,size_t ninfos,char *bname);
 char *getbname(Info **infos,size_t ninfos,size_t bnum);
-void search(size_t page,char *text);
-void pick(void);
+void search(char *path,size_t page,char *text);
+void pick(char *path);
 
 #ifdef UTIL_IMPLEMENTATION
 
@@ -50,13 +50,13 @@ char *getbname(Info **infos,size_t ninfos,size_t bnum) {
 	return NULL;
 }
 
-void search(size_t page,char *text) {
+void search(char *path,size_t page,char *text) {
 
 	trim(text);
 
  	if(text && *text) {
 
-		FILE *fp=fopen(BOOK_PATH,"r");
+		FILE *fp=fopen(path,"r");
 
 		char *line=NULL;
 		size_t llen=0;
@@ -114,9 +114,9 @@ void search(size_t page,char *text) {
 	}
 }
 
-void pick() {
+void pick(char *path) {
 
-	FILE *fp=fopen(BOOK_PATH,"r");
+	FILE *fp=fopen(path,"r");
 
 	char *line=NULL;
 	size_t llen=0;

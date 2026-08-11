@@ -65,11 +65,11 @@ void parsein(char *msg) {
 		Tokens_Free(&tokens,&ntokens);
 		Cites_Free(&cites,&ncites);
 	} else if(sscanf(msg,".skjv page %zu %[^\n]\n",&page,text)==2) {
-		search(page,text);
+		search(BOOK_PATH,page,text);
 	} else if(sscanf(msg,".skjv %[^\n]\n",text)==1) {
-		search(1,text);
+		search(BOOK_PATH,1,text);
 	} else if(strcasecmp(msg,".pkjv")==0) {
-	    pick();
+	    pick(BOOK_PATH);
 	}
 }
 
