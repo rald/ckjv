@@ -88,7 +88,7 @@ void search(size_t page,char *text) {
 
 				n++;
 
-				if(p==page) printf("(page %zu # %zu) %s %zu:%zu -> %s\n",p,n,bname,cnum,vnum,vers);
+				if(p==page) printf("(page %zu # %zu) %s %zu:%zu -> %s\n\n",p,n,bname,cnum,vnum,vers);
 				c++; if(c>=4) { c=0; p++; }
 			}
 
@@ -102,7 +102,7 @@ void search(size_t page,char *text) {
 
 		size_t pages=(size_t)ceil((double)n/4);
 
-		printf("found %zu in %zu %s\n",n,pages,pages<2?"page":"pages");
+		printf("found %zu in %zu %s\n\n",n,pages,pages<2?"page":"pages");
 
 		free(line);
 		line=NULL;
@@ -159,7 +159,7 @@ void pick() {
 
 	tokfree(&tokens,&ntokens);
 
-	printf("%s",passage);
+	printf("%s\n",passage);
 
 	fclose(fp);
 }

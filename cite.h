@@ -104,7 +104,7 @@ void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite) {
 			(ecnum==0 && evnum==0 && hcnum==scnum && hvnum==svnum))
 		) {
 			n++;
-			if(p==page) printf("(page %zu # %zu) %s %zu:%zu -> %s\r\n",p,n,hbname,hcnum,hvnum,htext);
+			if(p==page) printf("(page %zu # %zu) %s %zu:%zu -> %s\n\n",p,n,hbname,hcnum,hvnum,htext);
 			c++; if(c>=4) { c=0; p++; }
 	    }
 
@@ -118,7 +118,7 @@ void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite) {
 
 	size_t pages=(size_t)ceil((double)n/4);
 
-	printf("found %zu in %zu %s\r\n",n,pages,pages<2?"page":"pages");
+	printf("found %zu in %zu %s\n\n",n,pages,pages<2?"page":"pages");
 
 	free(line);
 	line=NULL;

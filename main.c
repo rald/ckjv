@@ -93,8 +93,6 @@ int main(int argc,char *argv[]) {
 		printf("> ");
 	}
 
-	Cites_Free(&cites,&ncites);
-	Tokens_Free(&tokens,&ntokens);
 	Infos_Free(&infos,&ninfos);
 
 	return 0;
