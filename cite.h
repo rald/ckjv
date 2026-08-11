@@ -68,7 +68,7 @@ void Cite_Append(Cite ***cites,size_t *ncites,Cite *cite) {
 
 void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite) {
 
-	FILE *fp=fopen("kjv.csv","r");
+	FILE *fp=fopen(BOOK_PATH,"r");
 
 	char *line=NULL;
 	size_t llen=0;

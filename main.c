@@ -81,7 +81,7 @@ int main(int argc,char *argv[]) {
 
 	srand(time(NULL));
 
-	Info_Load(&infos,&ninfos,"kjv.inf");
+	Info_Load(&infos,&ninfos,INFO_PATH);
 
 	printf("> ");
 	while((rlen=getline(&line,&llen,stdin))!=-1) {

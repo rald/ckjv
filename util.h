@@ -56,7 +56,7 @@ void search(size_t page,char *text) {
 
  	if(text && *text) {
 
-		FILE *fp=fopen(BIBLE_PATH,"r");
+		FILE *fp=fopen(BOOK_PATH,"r");
 
 		char *line=NULL;
 		size_t llen=0;
@@ -116,7 +116,7 @@ void search(size_t page,char *text) {
 
 void pick() {
 
-	FILE *fp=fopen(BIBLE_PATH,"r");
+	FILE *fp=fopen(BOOK_PATH,"r");
 
 	char *line=NULL;
 	size_t llen=0;
