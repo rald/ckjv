@@ -55,21 +55,21 @@ void parsein(char *msg) {
 	if(sscanf(msg,".kjv page %zu %[^\n]\n",&page,text)==2) {
 		lex(&tokens,&ntokens,text);
 		parse(infos,ninfos,tokens,ntokens,&cites,&ncites);
-		Cites_Print(page,infos,ninfos,cites,ncites);
+		Cites_Print(KJV_BOOK_PATH,page,infos,ninfos,cites,ncites);
 		Tokens_Free(&tokens,&ntokens);
 		Cites_Free(&cites,&ncites);
 	} else if(sscanf(msg,".kjv %[^\n]\n",text)==1) {
 		lex(&tokens,&ntokens,text);
 		parse(infos,ninfos,tokens,ntokens,&cites,&ncites);
-		Cites_Print(1,infos,ninfos,cites,ncites);
+		Cites_Print(KJV_BOOK_PATH,1,infos,ninfos,cites,ncites);
 		Tokens_Free(&tokens,&ntokens);
 		Cites_Free(&cites,&ncites);
 	} else if(sscanf(msg,".skjv page %zu %[^\n]\n",&page,text)==2) {
-		search(BOOK_PATH,page,text);
+		search(KJV_BOOK_PATH,page,text);
 	} else if(sscanf(msg,".skjv %[^\n]\n",text)==1) {
-		search(BOOK_PATH,1,text);
+		search(KJV_BOOK_PATH,1,text);
 	} else if(strcasecmp(msg,".pkjv")==0) {
-	    pick(BOOK_PATH);
+	    pick(KJV_BOOK_PATH);
 	}
 }
 
@@ -81,7 +81,7 @@ int main(int argc,char *argv[]) {
 
 	srand(time(NULL));
 
-	Info_Load(&infos,&ninfos,INFO_PATH);
+	Info_Load(&infos,&ninfos,KJV_INFO_PATH);
 
 	printf("> ");
 	while((rlen=getline(&line,&llen,stdin))!=-1) {

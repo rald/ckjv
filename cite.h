@@ -28,8 +28,8 @@ struct Cite {
 
 Cite *Cite_New(size_t bnum,size_t scnum,size_t ecnum,size_t svnum,size_t evnum);void Cites_Free(Cite ***cites,size_t *ncites);
 void Cite_Append(Cite ***cites,size_t *ncites,Cite *cite);
-void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite);
-void Cites_Print(size_t page,Info **infos,size_t ninfos,Cite **cites,size_t ncites);
+void Cite_Print(char *path,size_t page,Info **infos,size_t ninfos,Cite *cite);
+void Cites_Print(char *path,size_t page,Info **infos,size_t ninfos,Cite **cites,size_t ncites);
 
 #ifdef CITE_IMPLEMENTATION
 
@@ -66,9 +66,9 @@ void Cite_Append(Cite ***cites,size_t *ncites,Cite *cite) {
 	(*cites)[(*ncites)++]=cite;
 }
 
-void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite) {
+void Cite_Print(char *path,size_t page,Info **infos,size_t ninfos,Cite *cite) {
 
-	FILE *fp=fopen(BOOK_PATH,"r");
+	FILE *fp=fopen(path,"r");
 
 	char *line=NULL;
 	size_t llen=0;
@@ -128,9 +128,9 @@ void Cite_Print(size_t page,Info **infos,size_t ninfos,Cite *cite) {
 	fclose(fp);
 }
 
-void Cites_Print(size_t page,Info **infos,size_t ninfos,Cite **cites,size_t ncites) {
+void Cites_Print(char *path,size_t page,Info **infos,size_t ninfos,Cite **cites,size_t ncites) {
   for(size_t i=0;i<ncites;i++) {
-    Cite_Print(page,infos,ninfos,cites[i]);
+    Cite_Print(path,page,infos,ninfos,cites[i]);
   }
 }
 
