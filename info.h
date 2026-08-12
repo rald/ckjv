@@ -16,6 +16,7 @@ struct Info {
 };
 
 Info *Info_New();
+void Info_Free(Info **info);
 void Infos_Free(Info ***infos,size_t *ninfos);
 void Info_Append(Info ***infos,size_t *ninfos,Info *info);
 void Info_Load(Info ***infos,size_t *ninfos,char *path);
@@ -36,26 +37,30 @@ Info *Info_New() {
   return info;
 }
 
+void Info_Free(Info **info) {
+	free((*info)->bname);
+	(*info)->bname=NULL;
+
+	tokfree(&(*info)->bsnames,&(*info)->nbsnames);
+
+	(*info)->bnum=0;
+
+	free((*info)->nvers);
+	(*info)->nvers=NULL;
+
+	(*info)->nchap=0;
+
+ 	free(*info);
+	(*info)=NULL;
+}
+
 void Infos_Free(Info ***infos,size_t *ninfos) {
 	for(size_t i=0;i<*ninfos;i++) {
-		free((*infos)[i]->bname);
-		(*infos)[i]->bname=NULL;
-
-		tokfree(&(*infos)[i]->bsnames,&(*infos)[i]->nbsnames);
-
-		(*infos)[i]->bnum=0;
-
-		free((*infos)[i]->nvers);
-		(*infos)[i]->nvers=NULL;
-
-		(*infos)[i]->nchap=0;
-
-	 	free((*infos)[i]);;
-		(*infos)[i]=NULL;
+		Info_Free(&(*infos)[i]);
 	}
 	free(*infos);
-	*infos=NULL;
-	*ninfos=0;
+	(*infos)=NULL;
+	(*ninfos)=0;
 }
 
 void Info_Append(Info ***infos,size_t *ninfos,Info *info) {

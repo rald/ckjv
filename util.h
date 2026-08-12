@@ -164,6 +164,6 @@ void pick(char *path) {
 	fclose(fp);
 }
 
-#endif
+#endif /* UTIL_IMPLEMENTATION */
 
-#endif
+#endif /* UTIL_H */
