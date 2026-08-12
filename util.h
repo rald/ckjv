@@ -66,6 +66,8 @@ void search(char *path,size_t page,char *text) {
 		size_t c=0;
 		size_t n=0;
 
+		printf("\n");
+
 		while((rlen=getline(&line,&llen,fp)) && rlen>0) {
 			char **tokens=NULL;
 		 	size_t ntokens=0;
@@ -125,6 +127,8 @@ void pick(char *path) {
 	char passage[2046];
 
 	size_t n=0;
+
+	printf("\n");
 
 	while((rlen=getline(&line,&llen,fp))!=-1) {
 

@@ -84,6 +84,8 @@ void Cite_Print(char *path,size_t page,Info **infos,size_t ninfos,Cite *cite) {
 	size_t c=0;
 	size_t n=0;
 
+	printf("\n");
+
 	while(c<=4 && (rlen=getline(&line,&llen,fp))>0) {
 
 		rmnl(line);

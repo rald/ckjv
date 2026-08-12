@@ -86,12 +86,19 @@ int main(int argc,char *argv[]) {
 	printf("> ");
 	while((rlen=getline(&line,&llen,stdin))!=-1) {
 		if(rlen>0) parsein(line);
+
+		printf("> ");
+
 		free(line);
 		line=NULL;
 		llen=0;
 		rlen=0;
-		printf("> ");
 	}
+
+	free(line);
+	line=NULL;
+	llen=0;
+	rlen=0;
 
 	Infos_Free(&infos,&ninfos);
 
